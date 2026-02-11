@@ -49,9 +49,12 @@
     width: min(680px, 96vw);
     background: rgba(255, 255, 255, 0.72);
     border: 1px solid rgba(255, 255, 255, 0.9);
+    background: #fff9fb;
+    border: 1px solid rgba(255, 255, 255, 0.92);
     border-radius: 28px;
     box-shadow: 0 18px 44px rgba(107, 79, 94, 0.18);
     backdrop-filter: blur(5px);
+    box-shadow: 0 18px 44px rgba(107, 79, 94, 0.16);
     padding: clamp(20px, 3.6vw, 30px) clamp(16px, 3.2vw, 24px) clamp(22px, 4vw, 34px);
     text-align: center;
     position: relative;
@@ -65,6 +68,7 @@
     font-size: 5rem;
     color: rgba(216, 182, 194, 0.25);
     pointer-events: none;
+    z-index: 0;
   }
   h1 { font-size: 2.2em; }
   h2 { font-weight: normal; }
@@ -81,6 +85,11 @@
     transform: rotate(16deg);
   }
 
+  .card > * {
+    position: relative;
+    z-index: 1;
+  }
+
   .greeting {
     letter-spacing: 0.08em;
     text-transform: uppercase;
@@ -93,7 +102,20 @@
     margin: 10px 0 6px;
     font-size: clamp(2rem, 4.2vw, 2.9rem);
   }
-@@ -107,126 +97,116 @@
+
+  h2 {
+    margin: 0 0 16px;
+    font-size: clamp(1rem, 2.3vw, 1.35rem);
+    font-weight: 500;
+    color: #7a5d6a;
+  }
+
+  .gallery {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: clamp(10px, 2.2vw, 14px);
+    margin: 18px auto 16px;
+@@ -107,126 +101,125 @@
   }
 
   .gallery img {
@@ -203,6 +225,7 @@
 <div class="card">
   <h1>Hey Tanvi 💕</h1>
 <main class="card">
+<main class="card" id="main-card">
   <p class="greeting">A little love note for you</p>
   <h1>Hey Tanvi 💗</h1>
   <h2>Will you be my Valentine? 🌹</h2>
@@ -223,5 +246,13 @@
   </div>
 </main>
 
+<script>
+  const cards = document.querySelectorAll('.card');
+  cards.forEach((card, index) => {
+    if (index > 0) {
+      card.remove();
+    }
+  });
+</script>
 </body>
 </html>

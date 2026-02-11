@@ -7,13 +7,17 @@
 
 <style>
   :root {
-    --rose-mist: #f7e7ea;
-    --blush: #f2cfd6;
-    --plum: #6b4f5e;
-    --berry: #8f5f73;
+    /* Pastel green, purple, pink palette */
+    --mint: #e6f4ee;
+    --lavender: #efe9f7;
+    --blush: #f8e7ef;
+    --plum: #5f4b66;
+    --berry: #8a5f7d;
   }
 
-  * { box-sizing: border-box; }
+  * {
+    box-sizing: border-box;
+  }
 
   html, body {
     margin: 0;
@@ -25,9 +29,10 @@
     font-family: "Segoe UI", "Poppins", system-ui, sans-serif;
     color: var(--plum);
     background:
-      radial-gradient(circle at 18% 18%, rgba(255,255,255,0.65) 0 18%, transparent 19%),
-      radial-gradient(circle at 84% 84%, rgba(255,255,255,0.5) 0 14%, transparent 15%),
-      linear-gradient(145deg, #f7e7ea, #f2cfd6);
+      radial-gradient(circle at 20% 20%, var(--mint) 0%, transparent 45%),
+      radial-gradient(circle at 80% 30%, var(--blush) 0%, transparent 45%),
+      radial-gradient(circle at 50% 85%, var(--lavender) 0%, transparent 50%),
+      linear-gradient(145deg, #fdfcff, #f6f3fa);
     padding: clamp(14px, 3vw, 24px);
     display: grid;
     place-items: center;
@@ -35,111 +40,5 @@
 
   .card {
     width: min(680px, 96vw);
-    background: #fff9fb;
-    border-radius: 28px;
-    padding: clamp(22px, 4vw, 34px);
-    text-align: center;
-    position: relative;
-    border: 1px solid rgba(255,255,255,0.92);
-    box-shadow: 0 18px 44px rgba(107,79,94,0.16);
-  }
-
-  h1 {
-    font-size: clamp(2rem, 4vw, 2.6rem);
-    margin-bottom: 6px;
-  }
-
-  h2 {
-    font-size: clamp(1.05rem, 2.3vw, 1.3rem);
-    font-weight: 500;
-    color: #7a5d6a;
-    margin-bottom: 14px;
-  }
-
-  .message {
-    font-size: 1rem;
-    color: #7f6270;
-    line-height: 1.6;
-    margin-bottom: 20px;
-  }
-
-  /* SRK IMAGE */
-  .srk-wrapper {
-    max-width: 420px;
-    margin: 18px auto 20px;
-    border-radius: 20px;
-    overflow: hidden;
-    box-shadow: 0 10px 28px rgba(107,79,94,0.2);
-  }
-
-  .srk-wrapper img {
-    width: 100%;
-    height: auto;
-    display: block;
-  }
-
-  .footer-text {
-    margin-top: 18px;
-    font-weight: 600;
-    font-size: 1.05rem;
-    color: var(--berry);
-  }
-
-  .music-btn {
-    margin-top: 20px;
-    padding: 12px 22px;
-    border-radius: 999px;
-    border: none;
-    background: linear-gradient(140deg, #b9778f, #99607b);
-    color: white;
-    font-size: 1rem;
-    cursor: pointer;
-  }
-</style>
-</head>
-
-<body>
-
-<main class="card">
-  <h1>She Said YES 💖</h1>
-  <h2>And my heart is full</h2>
-
-  <p class="message">
-    I’m so happy, so grateful, and so incredibly lucky to have you.  
-    Thank you for saying yes.  
-    I love you — you are my world. 🌍✨
-  </p>
-
-  <!-- LOCAL SRK IMAGE -->
-  <div class="srk-wrapper">
-    <img src="srk-om-shanti-om.gif"
-         alt="Shah Rukh Khan in Om Shanti Om with hand on heart">
-  </div>
-
-  <p class="message">
-    This moment feels straight out of a movie —  
-    heart on my sleeve, falling for you all over again. 💫
-  </p>
-
-  <button class="music-btn" onclick="playMusic()">
-    ▶ Play our song 🎶
-  </button>
-
-  <div class="footer-text">
-    Shahapur Chi Katrina ho bolliiiiiii 💖
-  </div>
-</main>
-
-<audio id="bg-music" loop>
-  <source src="https://pagalfree.com/musics/128-Ajab%20Si%20-%20Om%20Shanti%20Om%20128%20Kbps.mp3" type="audio/mpeg">
-</audio>
-
-<script>
-  function playMusic() {
-    const music = document.getElementById("bg-music");
-    music.play();
-  }
-</script>
-
-</body>
-</html>
+    background: rgba(255, 255, 255, 0.85);
+    border-ra

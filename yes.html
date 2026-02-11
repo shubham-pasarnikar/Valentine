@@ -41,4 +41,108 @@
   .card {
     width: min(680px, 96vw);
     background: rgba(255, 255, 255, 0.85);
-    border-ra
+    border-radius: 28px;
+    padding: clamp(22px, 4vw, 34px);
+    text-align: center;
+    position: relative;
+    border: 1px solid rgba(255, 255, 255, 0.9);
+    box-shadow: 0 20px 50px rgba(95, 75, 102, 0.18);
+    backdrop-filter: blur(6px);
+  }
+
+  .card::before,
+  .card::after {
+    content: "❤";
+    position: absolute;
+    font-size: 4.2rem;
+    color: rgba(180, 150, 190, 0.25);
+    pointer-events: none;
+  }
+
+  .card::before {
+    top: -16px;
+    left: -8px;
+    transform: rotate(-12deg);
+  }
+
+  .card::after {
+    bottom: -26px;
+    right: -8px;
+    transform: rotate(14deg);
+  }
+
+  h1 {
+    margin: 0 0 6px;
+    font-size: clamp(2rem, 4vw, 2.6rem);
+  }
+
+  h2 {
+    margin: 0 0 16px;
+    font-size: clamp(1.05rem, 2.3vw, 1.3rem);
+    font-weight: 500;
+    color: #6d5a73;
+  }
+
+  .message {
+    font-size: 1rem;
+    color: #7a657f;
+    line-height: 1.65;
+    margin-bottom: 20px;
+  }
+
+  /* SRK GIF */
+  .srk-wrapper {
+    width: 100%;
+    max-width: 420px;
+    margin: 18px auto 22px;
+    border-radius: 22px;
+    overflow: hidden;
+    box-shadow: 0 12px 30px rgba(95, 75, 102, 0.22);
+  }
+
+  .srk-wrapper img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .footer-text {
+    margin-top: 20px;
+    font-weight: 600;
+    font-size: 1.05rem;
+    color: var(--berry);
+  }
+</style>
+</head>
+
+<body>
+
+<main class="card">
+  <h1>She Said YES 💖</h1>
+  <h2>And my heart is full</h2>
+
+  <p class="message">
+    I’m genuinely happy, deeply grateful, and unbelievably lucky to have you.  
+    Thank you for choosing me. Thank you for saying yes.  
+    I love you — you are my world. 🌍✨
+  </p>
+
+  <!-- SRK GIF -->
+  <div class="srk-wrapper">
+    <img
+      src="srk-om-shanti-om.gif"
+      alt="Shah Rukh Khan in Om Shanti Om with hand on his heart, falling back">
+  </div>
+
+  <p class="message">
+    This moment feels straight out of a movie —  
+    heart on my sleeve, falling for you all over again. 💫
+  </p>
+
+  <div class="footer-text">
+    Shahapur Chi Katrina ho bolliiiiiii 💖
+  </div>
+</main>
+
+</body>
+</html>

@@ -1,9 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Be My Valentine 💖</title>
 <style>
+  :root {
+    --rose-mist: #f7e7ea;
+    --blush: #f2cfd6;
+    --mauve: #d8b6c2;
+    --plum: #6b4f5e;
+    --berry: #8f5f73;
+    --cream: #fff9f7;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
   body {
     margin: 0;
     height: 100vh;
@@ -14,22 +28,176 @@
     font-family: 'Arial', sans-serif;
     text-align: center;
     color: white;
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+    font-family: "Segoe UI", "Poppins", system-ui, sans-serif;
+    color: var(--plum);
+    background:
+      radial-gradient(circle at 18% 18%, rgba(255, 255, 255, 0.65) 0 18%, transparent 19%),
+      radial-gradient(circle at 84% 84%, rgba(255, 255, 255, 0.5) 0 14%, transparent 15%),
+      linear-gradient(145deg, var(--rose-mist), var(--blush));
+    padding: clamp(14px, 3vw, 24px);
   }
+
   .card {
     padding: 30px;
     max-width: 90%;
+    width: min(680px, 96vw);
+    background: rgba(255, 255, 255, 0.72);
+    border: 1px solid rgba(255, 255, 255, 0.9);
+    border-radius: 28px;
+    box-shadow: 0 18px 44px rgba(107, 79, 94, 0.18);
+    backdrop-filter: blur(5px);
+    padding: clamp(20px, 3.6vw, 30px) clamp(16px, 3.2vw, 24px) clamp(22px, 4vw, 34px);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .card::before,
+  .card::after {
+    content: "❤";
+    position: absolute;
+    font-size: 5rem;
+    color: rgba(216, 182, 194, 0.25);
+    pointer-events: none;
   }
   h1 { font-size: 2.2em; }
   h2 { font-weight: normal; }
+
+  .card::before {
+    top: -16px;
+    left: -4px;
+    transform: rotate(-14deg);
+  }
+
+  .card::after {
+    right: -4px;
+    bottom: -28px;
+    transform: rotate(16deg);
+  }
+
+  .greeting {
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-size: 0.82rem;
+    color: var(--berry);
+    margin: 0;
+  }
+
+  h1 {
+    margin: 10px 0 6px;
+    font-size: clamp(2rem, 4.2vw, 2.9rem);
+  }
+
+  h2 {
+    margin: 0 0 16px;
+    font-size: clamp(1rem, 2.3vw, 1.35rem);
+    font-weight: 500;
+    color: #7a5d6a;
+  }
+
+  .gallery {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: clamp(10px, 2.2vw, 14px);
+    margin: 18px auto 16px;
+    max-width: 540px;
+  }
+
+  .gallery img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 16px;
+    border: 2px solid rgba(255, 255, 255, 0.8);
+    box-shadow: 0 8px 22px rgba(107, 79, 94, 0.16);
+  }
+
+  .note {
+    font-size: 0.98rem;
+    color: #7f6270;
+    margin: 10px auto 18px;
+  }
+
+  .actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+  }
+
   button {
     width: 80%;
     max-width: 300px;
     padding: 15px;
     margin: 15px;
     font-size: 1.2em;
+    min-width: 170px;
+    min-height: 48px;
+    padding: 12px 22px;
+    font-size: 1.05rem;
     border: none;
     border-radius: 30px;
+    border-radius: 999px;
     cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 16px rgba(107, 79, 94, 0.18);
+  }
+
+  button:active {
+    transform: translateY(0);
+  }
+
+  button:focus-visible {
+    outline: 3px solid rgba(153, 96, 123, 0.45);
+    outline-offset: 2px;
+  }
+
+  .yes {
+    background: linear-gradient(140deg, #b9778f, #99607b);
+    color: #fff;
+  }
+
+  .no {
+    background: #eee3e7;
+    color: #735763;
+  }
+
+  @media (max-width: 700px) {
+    .actions {
+      flex-direction: column;
+      align-items: stretch;
+    }
+
+    button {
+      width: 100%;
+      min-width: 0;
+    }
+  }
+
+  @media (max-width: 540px) {
+    .card::before,
+    .card::after {
+      font-size: 3.5rem;
+    }
+
+    .gallery {
+      grid-template-columns: 1fr;
+    }
+
+    .gallery img {
+      height: min(46vw, 210px);
+    }
+
+    .note {
+      font-size: 0.94rem;
+    }
   }
   .yes { background: #ff2e63; color: white; }
   .no { background: #444; color: white; }
@@ -39,11 +207,26 @@
 
 <div class="card">
   <h1>Hey Tanvi 💕</h1>
+<main class="card">
+  <p class="greeting">A little love note for you</p>
+  <h1>Hey Tanvi 💗</h1>
   <h2>Will you be my Valentine? 🌹</h2>
 
   <button class="yes" onclick="location.href='yes.html'">YES 😍</button>
   <button class="no" onclick="location.href='no.html'">NO 🙈</button>
 </div>
+  <section class="gallery" aria-label="Romantic moments">
+    <img src="https://images.unsplash.com/photo-1518199266791-5375a83190b7?auto=format&fit=crop&w=900&q=80" alt="Soft pink roses">
+    <img src="https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?auto=format&fit=crop&w=900&q=80" alt="Cozy candlelight with flowers">
+  </section>
+
+  <p class="note">You make every day feel warm, gentle, and magical ✨</p>
+
+  <div class="actions">
+    <button class="yes" onclick="location.href='yes.html'">YES, with all my heart 💞</button>
+    <button class="no" onclick="location.href='no.html'">Maybe... but probably yes 🙈</button>
+  </div>
+</main>
 
 </body>
 </html>

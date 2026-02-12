@@ -1,44 +1,149 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Filmy Dard 💔</title>
+<title>Hmm… Interesting Choice 😏</title>
+
 <style>
-  body {
+body {
     margin: 0;
-    background: radial-gradient(circle, #232526, #414345);
-    font-family: Arial, sans-serif;
-    color: #eee;
+    padding: 0;
+    font-family: 'Segoe UI', sans-serif;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     text-align: center;
-    padding: 20px;
-  }
-  h1 { font-size: 2em; }
-  p { font-style: italic; }
-  iframe {
-    width: 100%;
-    max-width: 560px;
-    height: 315px;
-    border-radius: 15px;
+    overflow: hidden;
+
+    /* Pastel green, purple, pink gradient */
+    background: linear-gradient(135deg, #c8f7d4, #e6d6ff, #ffd6f0);
+    background-size: 300% 300%;
+    animation: gradientMove 12s ease infinite;
+}
+
+@keyframes gradientMove {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.card {
+    background: rgba(255, 255, 255, 0.75);
+    padding: 30px 25px;
+    border-radius: 20px;
+    width: 90%;
+    max-width: 420px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    backdrop-filter: blur(8px);
+    transition: all 0.5s ease;
+}
+
+h1 {
+    font-size: 22px;
+    color: #4b2e83;
+}
+
+p {
+    font-size: 16px;
+    color: #444;
+    margin: 10px 0;
+}
+
+.timeline {
     margin-top: 20px;
-  }
+    opacity: 0;
+    transition: opacity 1s ease;
+}
+
+.timeline.show {
+    opacity: 1;
+}
+
+button {
+    margin-top: 25px;
+    padding: 12px 25px;
+    font-size: 15px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    background: #b388ff;
+    color: white;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    background: #9c6eff;
+    transform: scale(1.05);
+}
+
+/* Confetti */
+.confetti {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: pink;
+    top: -10px;
+    animation: fall 3s linear forwards;
+}
+
+@keyframes fall {
+    to {
+        transform: translateY(110vh) rotate(720deg);
+        opacity: 0;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 { font-size: 20px; }
+    p { font-size: 15px; }
+}
 </style>
 </head>
+
 <body>
 
-<h1>Itna Dard… 💔</h1>
-<p>
-“Ye duniya ye mehfil mere kaam ki nahi…”  
-Par phir bhi ek baar soch lo 😌
-</p>
+<div class="card">
+    <h1>In an alternate universe…</h1>
+    <p>You said no.</p>
 
-<iframe 
-  src="https://www.youtube.com/embed/y8k3w2Wv8Gg"
-  allowfullscreen>
-</iframe>
+    <div class="timeline" id="timeline">
+        <p>🍕 Pizza suddenly tastes bland.</p>
+        <p>🎬 SRK stops making romantic movies.</p>
+        <p>🚆 Mumbai locals run late… every day.</p>
+        <p>🌧 Shahapur loses its Katrina.</p>
+        <p style="margin-top:15px;"><strong>Timeline corrupted 😳</strong></p>
+        <p>Ekda punha vichar kar…</p>
+    </div>
 
-<p style="margin-top:20px;">
-Hero abhi zinda hai 😏
-</p>
+    <button onclick="restoreTimeline()">Restore Love Timeline 💫</button>
+</div>
+
+<script>
+setTimeout(() => {
+    document.getElementById("timeline").classList.add("show");
+}, 1500);
+
+function restoreTimeline() {
+
+    // Confetti burst
+    for (let i = 0; i < 80; i++) {
+        let confetti = document.createElement("div");
+        confetti.classList.add("confetti");
+        confetti.style.left = Math.random() * 100 + "vw";
+        confetti.style.background = ["#ffb6f9", "#b5ead7", "#c7ceea"][Math.floor(Math.random() * 3)];
+        confetti.style.animationDuration = (Math.random() * 2 + 2) + "s";
+        document.body.appendChild(confetti);
+
+        setTimeout(() => confetti.remove(), 3000);
+    }
+
+    setTimeout(() => {
+        window.location.href = "index.html";
+    }, 2000);
+}
+</script>
 
 </body>
 </html>
